@@ -14,5 +14,7 @@ cd ..
 echo finished $name #lets you know your progress
 done
 
-#remember to add line that echos # of fastq's in the directory
-#remember to add the time that it takes to cat the files
+# remember to add line that echos # of fastq's in the directory
+# remember to add the time that it takes to cat the files
+# want to make into a script that has a .log file
+# include how large the fastq files are!
