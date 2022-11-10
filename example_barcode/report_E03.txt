@@ -1,0 +1,50 @@
+This is cutadapt 4.1 with Python 3.8.5
+Command line parameters: -a TTTCTGTTGGTGCTGATATTGCGCCGGTAAAACTCGTGCCAGC...ACTTGCCTGTCGCTCTATCTTCCATAGTGGGGTATCTAATCCCAGTTTG -e 0.3 barcode2.fastq
+Processing single-end reads on 1 core ...
+Finished in 0.01 s (210 µs/read; 0.29 M reads/minute).
+
+=== Summary ===
+
+Total reads processed:                      38
+Reads with adapters:                        27 (71.1%)
+Reads written (passing filters):            38 (100.0%)
+
+Total basepairs processed:        11,163 bp
+Total written (filtered):          8,975 bp (80.4%)
+
+=== Adapter 1 ===
+
+Sequence: TTTCTGTTGGTGCTGATATTGCGCCGGTAAAACTCGTGCCAGC...ACTTGCCTGTCGCTCTATCTTCCATAGTGGGGTATCTAATCCCAGTTTG; Type: linked; Length: 43+49; 5' trimmed: 24 times; 3' trimmed: 17 times
+
+Minimum overlap: 3+3
+No. of allowed errors:
+1-2 bp: 0; 3-5 bp: 1; 6-9 bp: 2; 10-12 bp: 3; 13-15 bp: 4; 16-19 bp: 5; 20-22 bp: 6; 23-25 bp: 7; 26-29 bp: 8; 30-32 bp: 9; 33-35 bp: 10; 36-39 bp: 11; 40-43 bp: 12
+
+No. of allowed errors:
+1-2 bp: 0; 3-5 bp: 1; 6-9 bp: 2; 10-12 bp: 3; 13-15 bp: 4; 16-19 bp: 5; 20-22 bp: 6; 23-25 bp: 7; 26-29 bp: 8; 30-32 bp: 9; 33-35 bp: 10; 36-39 bp: 11; 40-42 bp: 12; 43-45 bp: 13; 46-49 bp: 14
+
+Overview of removed sequences at 5' end
+length	count	expect	max.err	error counts
+5	1	0.0	1	0 0 1
+19	3	0.0	5	2 0 0 1
+20	5	0.0	6	0 2 0 1 1 1
+21	7	0.0	6	5 1 0 0 0 1
+22	2	0.0	6	0 1 0 0 1
+23	2	0.0	6	0 0 0 2
+24	1	0.0	7	0 0 0 0 0 0 1
+102	1	0.0	12	0 0 0 0 0 0 0 0 0 0 1
+109	1	0.0	12	0 1
+334	1	0.0	12	0 0 1
+
+
+
+Overview of removed sequences at 3' end
+length	count	expect	max.err	error counts
+3	2	0.6	0	2
+4	1	0.1	1	0 1
+5	2	0.0	1	1 1
+6	8	0.0	1	0 7 1
+7	1	0.0	2	0 0 1
+244	1	0.0	14	0 0 0 0 0 0 0 1
+281	1	0.0	14	1
+620	1	0.0	14	0 0 0 0 0 0 0 0 0 0 0 0 0 1

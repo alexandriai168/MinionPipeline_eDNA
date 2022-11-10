@@ -6,7 +6,7 @@ library("ShortRead")
 
 option_list <- list(
   make_option(c("-f", "--file"), type="character", default=NULL, 
-              help="input fastq file name", metavar="character"),
+              help="input fastq file name", metavar="character"), # nolint
   make_option(c("-l", "--length"), type="integer", default=NULL, 
               help="number of bases to trim to", metavar="number"),
   make_option(c("-q", "--qualscore"), type="integer", default=NULL, 
@@ -57,5 +57,4 @@ test170 <- subseq(test, start = 1, end = opt$length)
 newfasta <- opt$out
 writeXStringSet(test170, newfasta, format="fasta")
 
-message(paste("\nFinished trimming and filtering",opt$file,"at",Sys.time(),"\n"), appendLF = TRUE)
-
+message(paste("\nFinished trimming and filtering", opt$file, "at", Sys.time(), "\n") ,appendLF = TRUE)  # nolint

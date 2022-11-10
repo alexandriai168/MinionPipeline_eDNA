@@ -1,0 +1,62 @@
+This is cutadapt 4.1 with Python 3.8.5
+Command line parameters: -a TTTCTGTTGGTGCTGATATTGCGCCGGTAAAACTCGTGCCAGC...ACTTGCCTGTCGCTCTATCTTCCATAGTGGGGTATCTAATCCCAGTTTG -e 0.4 barcode2.fastq
+Processing single-end reads on 1 core ...
+Finished in 0.00 s (131 µs/read; 0.46 M reads/minute).
+
+=== Summary ===
+
+Total reads processed:                      38
+Reads with adapters:                        36 (94.7%)
+Reads written (passing filters):            38 (100.0%)
+
+Total basepairs processed:        11,163 bp
+Total written (filtered):          7,110 bp (63.7%)
+
+=== Adapter 1 ===
+
+Sequence: TTTCTGTTGGTGCTGATATTGCGCCGGTAAAACTCGTGCCAGC...ACTTGCCTGTCGCTCTATCTTCCATAGTGGGGTATCTAATCCCAGTTTG; Type: linked; Length: 43+49; 5' trimmed: 30 times; 3' trimmed: 33 times
+
+Minimum overlap: 3+3
+No. of allowed errors:
+1-1 bp: 0; 2-4 bp: 1; 5-6 bp: 2; 7-9 bp: 3; 10-11 bp: 4; 12-14 bp: 5; 15-16 bp: 6; 17-19 bp: 7; 20-21 bp: 8; 22-24 bp: 9; 25-26 bp: 10; 27-29 bp: 11; 30-31 bp: 12; 32-34 bp: 13; 35-36 bp: 14; 37-39 bp: 15; 40-41 bp: 16; 42-43 bp: 17
+
+No. of allowed errors:
+1-1 bp: 0; 2-4 bp: 1; 5-6 bp: 2; 7-9 bp: 3; 10-11 bp: 4; 12-14 bp: 5; 15-16 bp: 6; 17-19 bp: 7; 20-21 bp: 8; 22-24 bp: 9; 25-26 bp: 10; 27-29 bp: 11; 30-31 bp: 12; 32-34 bp: 13; 35-36 bp: 14; 37-39 bp: 15; 40-41 bp: 16; 42-44 bp: 17; 45-46 bp: 18; 47-49 bp: 19
+
+Overview of removed sequences at 5' end
+length	count	expect	max.err	error counts
+3	1	0.6	1	0 1
+19	3	0.0	7	2 0 0 1
+20	5	0.0	8	0 2 0 1 1 1
+21	7	0.0	8	5 1 0 0 0 1
+22	2	0.0	8	0 1 0 0 1
+23	2	0.0	9	0 0 0 2
+24	1	0.0	9	0 0 0 0 0 0 1
+26	1	0.0	10	0 0 0 0 0 0 0 0 1
+76	1	0.0	17	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+102	1	0.0	17	0 0 0 0 0 0 0 0 0 0 1
+109	1	0.0	17	0 1
+154	1	0.0	17	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+164	1	0.0	17	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+334	1	0.0	17	0 0 1
+353	1	0.0	17	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+377	1	0.0	17	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+
+
+
+Overview of removed sequences at 3' end
+length	count	expect	max.err	error counts
+2	2	2.4	0	0 2
+3	3	0.6	1	1 1 1
+4	4	0.1	1	0 1 3
+5	5	0.0	2	1 1 3
+6	9	0.0	2	0 7 2
+7	1	0.0	2	0 0 1
+12	2	0.0	4	0 0 0 0 2
+107	1	0.0	19	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+117	1	0.0	19	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+179	1	0.0	19	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+190	1	0.0	19	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+281	1	0.0	19	1
+304	1	0.0	19	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+620	1	0.0	19	0 0 0 0 0 0 0 0 0 0 0 0 0 1
