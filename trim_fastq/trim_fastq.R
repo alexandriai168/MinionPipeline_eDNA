@@ -58,3 +58,12 @@ newfasta <- opt$out
 writeXStringSet(test170, newfasta, format="fasta")
 
 message(paste("\nFinished trimming and filtering", opt$file, "at", Sys.time(), "\n") ,appendLF = TRUE)  # nolint
+
+
+
+
+####   WE GOTTA UPDATE THIS M'AM
+
+
+## fixed code that is much better:)
+cutadapt -a TTTCTGTTGGTGCTGATATTGCGCCGGTAAAACTCGTGCCAGC...ACTTGCCTGTCGCTCTATCTTCCATAGTGGGGTATCTAATCCCAGTTTG -e 0.3 barcode2.fastq > output_E03.fastq 2>report_E03.txt 
