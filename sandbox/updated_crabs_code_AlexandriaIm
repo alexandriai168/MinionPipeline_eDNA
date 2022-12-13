@@ -1,0 +1,28 @@
+##### updated mitofish_download() function from module_db_download.py #####
+def mitofish_download(website):
+    wget_help = sp.check_output('wget -h', shell=True)
+    helstr=wget_help.decode('utf-8')
+    if 'show-progress' in helstr:
+        results = sp.run(['wget', '-O', 'complete_partial_mitogenomes.zip', website, '-q', '--show-progress']) #added -O flag to ensure output file is called complete_partial_mitogenomes.zip
+    else:
+        results = sp.run(['wget', website])
+    results = sp.run(['unzip', 'complete_partial_mitogenomes.zip'], stdout = sp.DEVNULL, stderr = sp.DEVNULL)
+    fasta = 'mito-all' #output fro unzip is now called mito-all, so updated this 
+    os.remove('complete_partial_mitogenomes.zip')
+
+    return fasta
+
+
+
+##### updated download seq data from Mitofish from crabs #####
+## download sequencing data from MitoFish
+    elif SOURCE == 'mitofish':
+        if all(v is not None for v in [OUTPUT]):
+            print('\ndownloading sequences from the MitoFish database')
+            url = 'http://mitofish.aori.u-tokyo.ac.jp/species/detail/download/?filename=download%2F/complete_partial_mitogenomes.zip' #new link
+            dl_file = mitofish_download(url)
+            print(f'formatting {dl_file} to CRABS format')
+            mitoformat = mitofish_format(dl_file, OUTPUT, ORIG, DISCARD)
+            print(f'written {mitoformat} sequences to {OUTPUT}\n')
+        else:
+            print('\nnot all parameters have an input value\n')
