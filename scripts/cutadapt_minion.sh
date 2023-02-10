@@ -4,13 +4,14 @@
 # by: Alexandria Im
 # Dec 2022
 
-# this is a script that will use cutadapt to trim sequences for all barcodes
-# before you run this script, make sure there is a directory with all fastq files 
-# and set up directory to store output files + directory for reports
+# This is a script that will use cutadapt to trim sequences for all barcodes in a particular directory
+# USAGE: sh cutadapt_minion.sh {path to input fastas} {cutadapt max error rate} {primers to trim}
+# for input 3, if you input "mifish", it will automically trim off mifish primers
 
-# this script requires that you have cutadapt
+# this script requires that you have cutadapt installed
+# cutadapt: https://cutadapt.readthedocs.io/en/stable/ 
 
-# NOTE: THIS SCRIPT IS HARD CODED TO HAVE ERROR 40% AND MOVE INTO SET DIRECTORY.  WILL EDIT TO BE MORE CUSTOMIZABLE
+
 
 #################################### CHECK DEPENDENCIES ####################################
 # check if cutadapt is installed
