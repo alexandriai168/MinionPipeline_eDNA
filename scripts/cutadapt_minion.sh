@@ -1,29 +1,80 @@
 #!/bin/bash
 
+# PRIMER TRIMMING SCRIPT FOR MINION DATA
+# by: Alexandria Im
+# Dec 2022
 
 # this is a script that will use cutadapt to trim sequences for all barcodes
 # before you run this script, make sure there is a directory with all fastq files 
 # and set up directory to store output files + directory for reports
 
-#  NOTE: THIS SCRIPT IS HARD CODED TO HAVE ERROR 40% AND MOVE INTO SET DIRECTORY.  WILL EDIT TO BE MORE CUSTOMIZABLE
+# this script requires that you have cutadapt
+
+# NOTE: THIS SCRIPT IS HARD CODED TO HAVE ERROR 40% AND MOVE INTO SET DIRECTORY.  WILL EDIT TO BE MORE CUSTOMIZABLE
+
+#################################### CHECK DEPENDENCIES ####################################
+# check if cutadapt is installed
+if ! which cutadapt > /dev/null; then
+echo "Cutadapt not found! Install? (y/n) \c"
+read
+if "$REPLY" = "y"; then
+    conda create -n cutadaptenv cutadapt
+    conda activate cutadaptenv
+fi
+fi
+CUTADAPT=$(which cutadapt)
+# if you're having an issue with the above command, you may not have CONDA installed:
+# https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
+# or you can explore other ways to install cutadapt:
+# https://cutadapt.readthedocs.io/en/stable/installation.html
 
 
+#################################### CHECKING INPUTS AND DEFINING VARIABLES ####################################
+# defining variables and creating log directory
 
+# define fastq path
+if [ -z ${1} ]
+then
+    echo "no fastq input"
+else
+    FASTQ_PATH=${1}
+fi
+cd ${FASTQ_PATH}
+
+#make necassary directories
+mkdir ./reports
+mkdir ./trimmed_fastqs
+
+#define error variable
+if [ -z ${2} ]
+then
+    ERROR_INPUT=0.4
+else 
+    ERROR_INPUT=${2}
+fi
+
+#define primer variable based on input
+if [ ${3} = "mifish" ]
+then
+    echo "The primer input is Mifish. Cutadapt input is now TTTCTGTTGGTGCTGATATTGCGCCGGTAAAACTCGTGCCAGC...ACTTGCCTGTCGCTCTATCTTCCATAGTGGGGTATCTAATCCCAGTTTG \n"
+    PRIMERS="TTTCTGTTGGTGCTGATATTGCGCCGGTAAAACTCGTGCCAGC...ACTTGCCTGTCGCTCTATCTTCCATAGTGGGGTATCTAATCCCAGTTTG"
+elif [ -z ${3} ]
+then
+    echo "No primer input!"
+else 
+    PRIMERS=${3}
+fi
+
+sleep 5
+
+#################################### USE CUTADAPT TO TRIM PRIMERS ####################################
 for name in *barcode* 
 do
-echo trimming $name
-cutadapt -a TTTCTGTTGGTGCTGATATTGCGCCGGTAAAACTCGTGCCAGC...ACTTGCCTGTCGCTCTATCTTCCATAGTGGGGTATCTAATCCCAGTTTG -e 0.4 $name.fastq.gz > ${name}_trimmed.fastq 2 > ${name}_trimReport.txt
+echo "trimming $name..."
+${CUTADAPT} -a ${PRIMERS} -e ${ERROR_INPUT} ${name} > trimmed_${name} 2> ./reports/${name}_trim_report.txt
 # awk command that prints mean length 
-echo $name > meanLength.txt 
-awk '{if(NR%4==2) {count++; bases += length} } END{print bases/count}' ${name}_trimmed.fastq > meanLength.txt #fastq file
-mv ${name}_trimmed.fastq ../trimmed_fastqs #move trimmed file into trimmed_fastq directory
-echo finished $name #lets you know your progress
+echo ${name} > meanLength.txt 
+awk '{if(NR%4==2) {count++; bases += length} } END{print bases/count}' trimmed_${name} > meanLength.txt 
+mv trimmed_${name} ./trimmed_fastqs #move trimmed file into trimmed_fastq directory
+echo finished ${name} #lets you know your progress
 done
-
-
-
-
-# look into % of reads that assign to kangaroo
-
-
-

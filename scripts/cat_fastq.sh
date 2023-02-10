@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# CONCATENATE FASTQ'S SCRIPT FOR MINION DATA
+# by: Alexandria Im
+# Nov 2022
+
 # for i in # of barcodes
 # this should be run in the command line
 # make directory called concat_files before running
