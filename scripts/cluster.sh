@@ -2,12 +2,13 @@
 
 # CLUSTERING SCRIPT FOR MINION DATA
 # by: Alexandria Im
+# Feb 9 2023
 
-# USAGE: cluster.sh {path to input fastas} {output fasta name} {path for output}
+# USAGE: sh cluster.sh {path to input fastas} {output fasta name} {path for output}
 
 # inspo for this script was taken from this tutorial:
 # https://github.com/frederic-mahe/swarm/wiki/Fred's-metabarcoding-pipeline (thanks Fred)
-# this script requires that you have seqkit, vsearch, and swarm
+# this script requires that you have seqkit, vsearch, and swarm installed
 # seqkit: https://bioinf.shenwei.me/seqkit/
 # vsearch: https://github.com/torognes/vsearch
 # swarm: https://github.com/torognes/swarm

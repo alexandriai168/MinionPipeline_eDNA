@@ -48,6 +48,6 @@ crabs visualization --method amplicon_length --input assigned_tax_derep.tsv --le
 #didn't do this yet, but could be good if I'm interested in particular species
 
 # 9. tax_format
-crabs tax_format --input assigned_tax_derep.tsv --output final_reference_database.fasta --format dads
+crabs tax_format --input assigned_tax_derep.tsv --output final_reference_database.fasta --format sintax
 # this would be for dada2
 
