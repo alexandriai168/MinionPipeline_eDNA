@@ -42,7 +42,7 @@ fi
 SEQKIT=$(which seqkit)
 VSEARCH=$(which vsearch)
 SWARM=$(which swarm)
-AMP_CONTINGENCY=$(greadlink -f amplicon_contingency_table.py) # this should be downloaded with swarm
+AMP_CONTINGENCY=~/git/swarm/scripts/amplicon_contingency_table.py # this should be downloaded with swarm
 INPUT_DIR=${1}
 FINAL_FASTA=${2}
 OUTPUT_PATH=${3}
@@ -79,7 +79,7 @@ sleep 5
     --relabel_sha1 \
     --output ${OUTPUT_PATH}/derep/to_cluster.fasta 2>> ${OUTPUT_PATH}/derep/dereplication.log
 
-python ${AMP_CONTINGENCY} ${OUTPUT_PATH}/derep/to_cluster.fasta ${OUTPUT_PATH}/amplicons_table.csv # make contingency table for amplicons
+python ${AMP_CONTINGENCY} ${OUTPUT_PATH}/derep/to_cluster.fasta > ${OUTPUT_PATH}/amplicons_table.csv # make contingency table for amplicons
 echo "Finished dereplication. \n"
 sleep 5
 
