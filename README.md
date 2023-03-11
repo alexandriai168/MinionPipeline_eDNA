@@ -1,7 +1,7 @@
 # Kelly Lab Minion Metabarcoding Data Pipeline 
 ## by: Alexandria Im
 
-** This pipeline is still under construction! Check back for a finished product:)*
+**This pipeline is still under construction! Check back for a finished product:)**
 
 This repo contains code that the Kelly Lab uses to work with metabarcoding data that comes off of the Oxford Nanopore's Minion. 
 
