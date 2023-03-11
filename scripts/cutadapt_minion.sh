@@ -36,15 +36,17 @@ CUTADAPT=$(which cutadapt)
 # define fastq path
 if [ -z ${1} ]
 then
-    echo "no fastq input"
+    echo "no fastq path input"
 else
     FASTQ_PATH=${1}
 fi
 cd ${FASTQ_PATH}
 
 #make necassary directories
-mkdir ./reports
-mkdir ./trimmed_fastqs
+mkdir ../trimmed_fastqs
+mkdir ../trimmed_fastqs/reports
+TRIMMED_DIR=../trimmed_fastqs
+REPORT_DIR=../trimmed_fastqs/reports
 
 #define error variable
 if [ -z ${2} ]
@@ -72,10 +74,10 @@ sleep 5
 for name in *barcode* 
 do
 echo "trimming $name..."
-${CUTADAPT} -a ${PRIMERS} -e ${ERROR_INPUT} ${name} > trimmed_${name} 2> ./reports/${name}_trim_report.txt
+${CUTADAPT} -a ${PRIMERS} -e ${ERROR_INPUT} ${name} > trimmed_${name} 2> ${REPORT_DIR}/${name}_trim_report.txt
 # awk command that prints mean length 
-echo ${name} > meanLength.txt 
-awk '{if(NR%4==2) {count++; bases += length} } END{print bases/count}' trimmed_${name} > meanLength.txt 
-mv trimmed_${name} ./trimmed_fastqs #move trimmed file into trimmed_fastq directory
+echo ${name} > ${TRIMMED_DIR}/meanLength.txt 
+awk '{if(NR%4==2) {count++; bases += length} } END{print bases/count}' trimmed_${name} > ${TRIMMED_DIR}/meanLength.txt 
+mv trimmed_${name} ${TRIMMED_DIR} #move trimmed file into trimmed_fastq directory
 echo finished ${name} #lets you know your progress
 done
