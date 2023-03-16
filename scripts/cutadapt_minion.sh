@@ -76,8 +76,8 @@ do
 echo "trimming $name..."
 ${CUTADAPT} -a ${PRIMERS} -e ${ERROR_INPUT} -j 0 ${name} > trimmed_${name} 2> ${REPORT_DIR}/${name}_trim_report.txt
 # awk command that prints mean length 
-echo ${name} > ${TRIMMED_DIR}/meanLength.txt 
-awk '{if(NR%4==2) {count++; bases += length} } END{print bases/count}' trimmed_${name} >> ${TRIMMED_DIR}/meanLength.txt 
+echo ${name} >> ${TRIMMED_DIR}/meanLength.txt 
+awk '{if(NR%4==2) {count++; bases += length} } END{print bases/count}' trimmed_${name}>> ${TRIMMED_DIR}/meanLength.txt 
 mv trimmed_${name} ${TRIMMED_DIR} #move trimmed file into trimmed_fastq directory
 echo finished ${name} #lets you know your progress
 done
