@@ -81,3 +81,8 @@ awk '{if(NR%4==2) {count++; bases += length} } END{print bases/count}' trimmed_$
 mv trimmed_${name} ${TRIMMED_DIR} #move trimmed file into trimmed_fastq directory
 echo finished ${name} #lets you know your progress
 done
+
+#### TODO: ####
+# fix naming- its annoying that it gets outputted as barcode63.fastq.gz_trim_report.txt.
+# it would be nice if it was just barcode63_trim_report.txt
+# ANSWER: cut. take a look at metabarcoding wrapper

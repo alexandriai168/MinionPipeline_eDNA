@@ -16,7 +16,7 @@ cd $name #cd into each barcode
 ##### add # of files in each barcode to log file #####
 echo "the number of files in $name is:"
 ls | wc -l
-echo "the number of files in $name is:" > cat_fastq.log 
+echo "the number of files in $name is:" >> cat_fastq.log 
 ls | wc -l >> cat_fastq.log 
 
 cat * > $name.fastq.gz #cat all the fastqs and pipe into a new file located in the concat_files directory

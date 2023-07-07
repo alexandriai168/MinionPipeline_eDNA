@@ -5,7 +5,7 @@
 # Feb 9 2023
 
 # USAGE: sh cluster.sh {path to input fastqs directory} {output fasta name} {path for output}
-
+c
 # inspo for this script was taken from this tutorial:
 # https://github.com/frederic-mahe/swarm/wiki/Fred's-metabarcoding-pipeline (thanks Fred)
 # this script requires that you have seqkit, vsearch, and swarm installed
@@ -21,7 +21,7 @@ do
 if ! which ${i} > /dev/null; then
 echo "${i} command not found! Install? (y/n) \c"
 read
-if "$REPLY" = "y"; then
+if [[ "$REPLY" = "y" ]]; then
     pip install ${i}
 fi
 fi
@@ -31,7 +31,7 @@ done
 if ! which swarm > /dev/null; then
 echo "swarm command not found! Install? (y/n) \c"
 read
-if "$REPLY" = "y"; then
+if [[ "$REPLY" = "y" ]]; then
     git clone https://github.com/torognes/swarm.git
     cd swarm/
     make
@@ -94,7 +94,7 @@ sleep 5
 echo "Starting clustering... \n"
 #THREADS=16
 ${SWARM} \
-    -d 1 -f -z \
+    -d 3 -z \
     -b 5 \
     -s ${OUTPUT_PATH}/clustering/swarm.stats \
     -l ${OUTPUT_PATH}/clustering/swarm.log \
