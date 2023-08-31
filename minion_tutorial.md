@@ -34,6 +34,8 @@ So now, you have a file inside of all of your barcode directories called barcode
 
 Nanoplot will give us information about the quality of our sequencing run and sequences! You will run NanoPlot on the `sequencing_summary.txt` file that is generated when you basecall.
 
+Note: 
+
 ```bash
 # make a directory to store all of the output plots
 mkdir nanoplot_summary_plots
@@ -48,7 +50,7 @@ NanoPlot --summary sequencing_summary.txt --loglength -o nanoplot_summary_plots
 <a style="color: #CD5C5C;" href="https://github.com/wdecoster/chopper"> *https://github.com/wdecoster/chopper* </a>
 
 
-Given that you want to trim off primers, we can use Chopper to take off *n* amount of basepairs off of the beginning and end of the end of our sequences. The code below is made for MiFish primers, so it will trim 21 off of the head and 27 off of the tail.  It will also filter out any sequences less than 50 bp or more than 300 bp.
+Given that you want to trim off primers, we can use Chopper to take off *n* amount of basepairs off of the beginning and end of the end of our sequences. The code below is made for MiFish primers, so it will trim 21 off of the head (length of forward primer) and 27 off of the tail (length of reverse primer).  It will also filter out any sequences less than 50 bp or more than 300 bp in length.
 ```bash
 mkdir trimmed 
 for i in *barcode*
@@ -80,7 +82,9 @@ done
 
 ```
 There are 2 files that are outputted from kraken2:
+
 - barcode#.report.out
+
 - barcode#.report
 
 A helpful guide for understanding the kraken2 output files:

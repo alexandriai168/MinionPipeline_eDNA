@@ -119,6 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="documentation-for-nanoplot">Documentation for Nanoplot:</h3>
 <p><a style="color: #CD5C5C;" href="https://github.com/wdecoster/NanoPlot"> <em>https://github.com/wdecoster/NanoPlot</em> </a></p>
 <p>Nanoplot will give us information about the quality of our sequencing run and sequences! You will run NanoPlot on the <code>sequencing_summary.txt</code> file that is generated when you basecall.</p>
+<p>Note:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make a directory to store all of the output plots</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> nanoplot_summary_plots</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -134,7 +135,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="documentation-for-chopper" class="level3">
 <h3 class="anchored" data-anchor-id="documentation-for-chopper">Documentation for Chopper:</h3>
 <p><a style="color: #CD5C5C;" href="https://github.com/wdecoster/chopper"> <em>https://github.com/wdecoster/chopper</em> </a></p>
-<p>Given that you want to trim off primers, we can use Chopper to take off <em>n</em> amount of basepairs off of the beginning and end of the end of our sequences. The code below is made for MiFish primers, so it will trim 21 off of the head and 27 off of the tail. It will also filter out any sequences less than 50 bp or more than 300 bp.</p>
+<p>Given that you want to trim off primers, we can use Chopper to take off <em>n</em> amount of basepairs off of the beginning and end of the end of our sequences. The code below is made for MiFish primers, so it will trim 21 off of the head (length of forward primer) and 27 off of the tail (length of reverse primer). It will also filter out any sequences less than 50 bp or more than 300 bp in length.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> trimmed </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="pp">*</span>barcode<span class="pp">*</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
@@ -159,7 +160,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#for example, if your database is ~/Desktop/Meyer_kraken2_db, you'd input </span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># kraken2 --db ~/Desktop/Meyer_kraken2_db --output $(echo ${i} | cut -d . -f 1).report.out --report $(echo ${i} | cut -d . -f 1).report ${i}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>There are 2 files that are outputted from kraken2: - barcode#.report.out - barcode#.report</p>
+<p>There are 2 files that are outputted from kraken2:</p>
+<ul>
+<li><p>barcode#.report.out</p></li>
+<li><p>barcode#.report</p></li>
+</ul>
 <p>A helpful guide for understanding the kraken2 output files: <a style="color: #CD5C5C;" href="https://bisonnet.bucknell.edu/files/2021/05/Kraken2-Help-Sheet.pdf"> https://bisonnet.bucknell.edu/files/2021/05/Kraken2-Help-Sheet.pdf </a></p>
 </section>
 </section>
