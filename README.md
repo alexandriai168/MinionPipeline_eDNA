@@ -1,9 +1,4 @@
----
-title: "Ally's ONT Data Pipeline!"
-format:
-  html: 
-    theme: darkly
----
+# Kelly Lab ONT Data Pipeline
 
 Feel free to reach out with any questions! My email is:<a style="color: #CD5C5C;"> aim168@uw.edu </a>
 
